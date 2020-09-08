@@ -13,16 +13,64 @@ return elements in First In First Out order.
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
 """
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+    
+#     def __len__(self):
+#         return self.size
+
+#     def enqueue(self, value):
+#         self.storage.append(value)
+#         self.size += 1
+
+#     def dequeue(self):
+#         if self.size > 0:
+#             value = self.storage[0]
+#             self.storage.pop(0)
+#             self.size -= 1
+#             return value
+
+class Node:
+    def __init__(self, value = None):
+        self.value = value
+        self.nextValue = None
+class LinkedList:
+    def __init__(self, headValue = None):
+        self.headValue = headValue
+
 class Queue:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = LinkedList()
     
     def __len__(self):
-        pass
+        return self.size
 
     def enqueue(self, value):
-        pass
+        endOfQueue = self.storage.headValue
+        self.storage.headValue = Node(value)
+        self.storage.headValue.nextValue = endOfQueue
+        self.size += 1
 
     def dequeue(self):
-        pass
+        curVal = self.storage.headValue
+        lastNode = None
+        if curVal is None:
+            return None
+        elif curVal.nextValue is None:
+            lastNode = curVal
+            self.size -= 1
+            self.storage.headValue = None
+            return lastNode.value
+        else:
+            self.size -= 1
+            lastVal = curVal
+            while curVal.nextValue:
+                curVal = curVal.nextValue
+                if curVal.nextValue:
+                    lastVal = curVal
+            lastVal.nextValue = None
+            return curVal.value
+

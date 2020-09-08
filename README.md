@@ -20,13 +20,13 @@ Stretch Goals:
  
  > NOTE: The quickest and easiest way to reliably import a file in Python is to just copy and paste the file you want to import into the same directory as the file that wants to import. This obviously isn't considered best practice, but it is the most reliable way to do it across all platforms.  If the import isn't working, feel free to try this method.
 
-### Stacks
+### Stacks [x]
 * Should have the methods: `push`, `pop`, and `len`.
    * `push` adds an item to the top of the stack.
    * `pop` removes and returns the element at the top of the stack
    * `len` returns the number of elements in the stack.
 
-### Queues
+### Queues [ ]
  * Has the methods: `enqueue`, `dequeue`, and `len`.
    * `enqueue` adds an element to the back of the queue.
    * `dequeue` removes and returns the element at the front of the queue.
