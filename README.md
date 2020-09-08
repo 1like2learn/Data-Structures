@@ -26,7 +26,7 @@ Stretch Goals:
    * `pop` removes and returns the element at the top of the stack
    * `len` returns the number of elements in the stack.
 
-### Queues [ ]
+### Queues [x]
  * Has the methods: `enqueue`, `dequeue`, and `len`.
    * `enqueue` adds an element to the back of the queue.
    * `dequeue` removes and returns the element at the front of the queue.
