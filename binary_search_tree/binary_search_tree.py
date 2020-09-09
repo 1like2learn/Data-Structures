@@ -17,12 +17,37 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        #Dim current node and whether or not the loop should continue
+        node = self
+        loop = True
+        while loop:
+        #If the node value is greater than the new value check if node.left exists
+        #If it exists make it the new node and loop again. Otherwise set a new node
+        #with the new value and end the loop
+            if node.value > value:
+                if node.left:
+                    node = node.left
+                else:
+                    node.left = BSTNode(value)
+                    loop = False
+        #If the node value is less than the new value check if node.right exists
+        #If it exists make it the new node and loop again. Otherwise set a new node
+        #with the new value and end the loop
+            elif node.value <= value:
+                if node.right:
+                    node = node.right
+                else:
+                    node.right = BSTNode(value)
+                    loop = False
+            
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+        node = self
+        loop = True
+        while loop:
+            
 
     # Return the maximum value found in the tree
     def get_max(self):
@@ -63,23 +88,37 @@ class BSTNode:
 """
 This code is necessary for testing the `print` methods
 """
-bst = BSTNode(1)
+# bst = BSTNode(1)
 
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
 
-bst.bft_print()
-bst.dft_print()
+# bst.bft_print()
+# bst.dft_print()
 
-print("elegant methods")
-print("pre order")
-bst.pre_order_dft()
-print("in order")
-bst.in_order_dft()
-print("post order")
-bst.post_order_dft()  
+# print("elegant methods")
+# print("pre order")
+# bst.pre_order_dft()
+# print("in order")
+# bst.in_order_dft()
+# print("post order")
+# bst.post_order_dft()  
+
+# tree = BSTNode(5)
+# tree.insert(2)
+# tree.insert(3)
+# tree.insert(7)
+# tree.insert(6)
+# print("tree.left.value",tree.left.value)
+# print("tree.right.value",tree.right.value)
+# print(tree.left.right.value)
+# print(tree.right.left.value)
+# tree.insert(3)
+# tree.insert(11)
+# print("tree.left",tree.left)
+# print("tree.right",tree.right)

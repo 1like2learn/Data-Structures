@@ -61,11 +61,9 @@ class Queue:
             return None
         elif curVal.nextValue is None:
             lastNode = curVal
-            self.size -= 1
             self.storage.headValue = None
             return lastNode.value
         else:
-            self.size -= 1
             lastVal = curVal
             while curVal.nextValue:
                 curVal = curVal.nextValue
@@ -73,4 +71,5 @@ class Queue:
                     lastVal = curVal
             lastVal.nextValue = None
             return curVal.value
+        self.size -= 1
 
