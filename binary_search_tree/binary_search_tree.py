@@ -80,9 +80,12 @@ class BSTNode:
             
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
+        #Run the function on current node value
         fn(self.value)
         if self.left:
             self.left.for_each(fn)
+        #Check if this node has a greater value and run
+        #this function on it if it does
         if self.right:
             self.right.for_each(fn)
 
@@ -177,11 +180,21 @@ class BSTNode:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self):
-        pass
+        if self:
+            print(self.value)
+            if self.left:
+                self.left.pre_order_dft()
+            if self.right:
+                self.right.pre_order_dft()
 
     # Print Post-order recursive DFT
     def post_order_dft(self):
-        pass
+        if self:
+            if self.left:
+                self.left.post_order_dft()
+            if self.right:
+                self.right.post_order_dft()
+        print(self.value)
 
 """
 This code is necessary for testing the `print` methods
@@ -200,7 +213,7 @@ bst.bft_print()
 print("\ndft_print")
 bst.dft_print()
 
-print("elegant methods")
+print("\nelegant methods")
 print("in order")
 bst.in_order_print()
 print("post order")
