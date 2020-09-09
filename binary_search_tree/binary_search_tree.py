@@ -46,16 +46,56 @@ class BSTNode:
     def contains(self, target):
         node = self
         loop = True
+        #Loop until we reach the end of the tree
         while loop:
-            
+        #If the target is less than node
+            if node.value > target:
+        #Reassign node if node.left exists
+                if node.left:
+                    node = node.left
+        #Otherwise return false
+                else:
+                    return False
+        #If the target is greater than node
+            elif node.value < target:
+        #Reassign node if node.left exists
+                if node.right:
+                    node = node.right
+        #Otherwise return false
+                else:
+                    return False
+        #If node equals the target return true
+            elif node.value == target:
+                return True
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
-
+        #Assign current node
+        node = self
+        #While node.right exists assign node to node.right
+        while node.right:
+            node = node.right
+        #Once we have the greatest value for node return node.value
+        return node.value
+            
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        #Dim a list of nodes to check
+        workList = [self]
+        #Check that the list isn't empty
+        while len(workList) > 0:
+        #Assign the first value in the list to node
+            node = workList[0]
+        #If node.left exists add it to the worklist
+            if node.left:
+                workList.append(node.left)
+        #If node.right exists add it to the worklist
+            if node.right:
+                workList.append(node.right)
+        #Use the provided function on the node value
+        #and remove the node from the workList
+            fn(node.value)
+            workList.remove(node)
 
     # Part 2 -----------------------
 
@@ -109,16 +149,10 @@ This code is necessary for testing the `print` methods
 # print("post order")
 # bst.post_order_dft()  
 
-# tree = BSTNode(5)
-# tree.insert(2)
-# tree.insert(3)
-# tree.insert(7)
-# tree.insert(6)
-# print("tree.left.value",tree.left.value)
-# print("tree.right.value",tree.right.value)
-# print(tree.left.right.value)
-# print(tree.right.left.value)
-# tree.insert(3)
-# tree.insert(11)
-# print("tree.left",tree.left)
-# print("tree.right",tree.right)
+tree = BSTNode(5)
+tree.insert(2)
+tree.insert(3)
+tree.insert(7)
+tree.insert(6)
+tree.insert(11)
+tree.for_each(print)
