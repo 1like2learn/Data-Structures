@@ -104,6 +104,14 @@ class BSTNode:
     def in_order_print(self):
         pass
 
+    """
+                    1
+                        8
+                    5
+                3       7
+            2      4 6
+
+    """
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self):
@@ -149,10 +157,10 @@ This code is necessary for testing the `print` methods
 # print("post order")
 # bst.post_order_dft()  
 
-tree = BSTNode(5)
-tree.insert(2)
-tree.insert(3)
-tree.insert(7)
-tree.insert(6)
-tree.insert(11)
-tree.for_each(print)
+# tree = BSTNode(5)
+# tree.insert(2)
+# tree.insert(3)
+# tree.insert(7)
+# tree.insert(6)
+# tree.insert(11)
+# tree.for_each(print)
