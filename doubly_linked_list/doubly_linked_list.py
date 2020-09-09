@@ -67,6 +67,8 @@ class DoublyLinkedList:
             self.length -= 1
         #return value
             return oldHead.value
+        else:
+            Exception("List is empty")
 
             
     """
@@ -194,6 +196,8 @@ class DoublyLinkedList:
                 targetPrev.next = targetNext
         #Adjust the length
             self.length -= 1
+        else:
+            Exception("The list is empty")
 
     """
     Finds and returns the maximum value of all the nodes 

@@ -80,6 +80,57 @@ class BSTNode:
             
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
+        fn(self.value)
+        if self.left:
+            self.left.for_each(fn)
+        if self.right:
+            self.right.for_each(fn)
+
+        # #Dim a list of nodes to check
+        # workList = [self]
+        # #Check that the list isn't empty
+        # while len(workList) > 0:
+        # #Assign the first value in the list to node
+        #     node = workList[0]
+        # #If node.left exists add it to the worklist
+        #     if node.left:
+        #         workList.append(node.left)
+        # #If node.right exists add it to the worklist
+        #     if node.right:
+        #         workList.append(node.right)
+        # #Use the provided function on the node value
+        # #and remove the node from the workList
+        #     fn(node.value)
+        #     workList.remove(node)
+
+    # Part 2 -----------------------
+
+    # Print all the values in order from low to high
+    # Hint:  Use a recursive, depth first traversal
+    def in_order_print(self):
+        #If self exists
+        if self:
+        #If self doesn't have a lower value print it
+            if not self.left:
+                print(self.value)
+        #Otherwise run the function again with it's left path
+            else:
+                self.left.in_order_print()
+                print(self.value)
+            
+            if self.right:
+                self.right.in_order_print()
+    """
+                    1
+                        8
+                    5
+                3       7
+            2      4 6
+
+    """
+    # Print the value of every node, starting with the given node,
+    # in an iterative breadth first traversal
+    def bft_print(self):
         #Dim a list of nodes to check
         workList = [self]
         #Check that the list isn't empty
@@ -92,35 +143,34 @@ class BSTNode:
         #If node.right exists add it to the worklist
             if node.right:
                 workList.append(node.right)
-        #Use the provided function on the node value
-        #and remove the node from the workList
-            fn(node.value)
+        #Print the value and remove the node from the workList
+            print(node.value)
             workList.remove(node)
-
-    # Part 2 -----------------------
-
-    # Print all the values in order from low to high
-    # Hint:  Use a recursive, depth first traversal
-    def in_order_print(self):
-        pass
-
-    """
-                    1
-                        8
-                    5
-                3       7
-            2      4 6
-
-    """
-    # Print the value of every node, starting with the given node,
-    # in an iterative breadth first traversal
-    def bft_print(self):
-        pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
-        pass
+        # print(self.value)
+        # if self.left:
+        #     self.left.dft_print()
+        # if self.right:
+        #     self.right.dft_print()
+
+        #Dim a list of nodes to check
+        workList = [self]
+        #Check that the list isn't empty
+        while len(workList) > 0:
+        #Assign the last value in the list to node
+            node = workList[-1]
+        #If node.left exists add it to the worklist
+            if node.left:
+                workList.append(node.left)
+        #If node.right exists add it to the worklist
+            if node.right:
+                workList.append(node.right)
+        #Print the value and remove the node from the workList
+            print(node.value)
+            workList.remove(node)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
@@ -136,31 +186,24 @@ class BSTNode:
 """
 This code is necessary for testing the `print` methods
 """
-# bst = BSTNode(1)
+bst = BSTNode(1)
 
-# bst.insert(8)
-# bst.insert(5)
-# bst.insert(7)
-# bst.insert(6)
-# bst.insert(3)
-# bst.insert(4)
-# bst.insert(2)
+bst.insert(8)
+bst.insert(5)
+bst.insert(7)
+bst.insert(6)
+bst.insert(3)
+bst.insert(4)
+bst.insert(2)
+print("\nbft_print")
+bst.bft_print()
+print("\ndft_print")
+bst.dft_print()
 
-# bst.bft_print()
-# bst.dft_print()
-
-# print("elegant methods")
-# print("pre order")
-# bst.pre_order_dft()
-# print("in order")
-# bst.in_order_dft()
-# print("post order")
-# bst.post_order_dft()  
-
-# tree = BSTNode(5)
-# tree.insert(2)
-# tree.insert(3)
-# tree.insert(7)
-# tree.insert(6)
-# tree.insert(11)
-# tree.for_each(print)
+print("elegant methods")
+print("in order")
+bst.in_order_print()
+print("post order")
+bst.post_order_dft() 
+print("pre order")
+bst.pre_order_dft() 
